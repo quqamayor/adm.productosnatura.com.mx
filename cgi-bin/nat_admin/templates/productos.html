@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<table width="70%" border="0" align="center" cellpadding="2" cellspacing="4">
+  <tr bgcolor="#f1f1f1">
+    <td width="76%" bgcolor="#FECC8A" class="titulo">Productos</td>
+    <td width="24%" align="center" bgcolor="#FECC8A"><a href="index.php?cmd=productos&action=agregar">Agregar</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top"><table width="99%" border="0" cellpadding="4" cellspacing="4">
+      <tr bgcolor="#FE4617" class="texto3">
+        <td width="19%" align="center">Nombre</td>
+        <td width="18%" align="center">Linea</td>
+        <td width="18%" align="center">Sublinea</td>
+        <td width="16%" align="center">Asin</td>
+        <td width="17%" align="center">Asin Refill </td>
+        <td width="15%" align="center">Estatus</td>
+        <td width="15%">&nbsp;</td>
+      </tr>
+	  <? for($i=0; $i<$filas; $i++){
+	  		$datos = mysql_fetch_array($res); 
+			if($i%2 == 0) $colorFila = 'bgcolor="#FFE7C8"'; else $colorFila = '';
+			
+			$qrySub = "SELECT ID_lineas,Nombre FROM Sublineas WHERE ID_sublineas = '$datos[1]'";
+			//print"$qrySub";
+			$resSub = mysql_query($qrySub);
+			$datoSub = mysql_fetch_array($resSub);
+			
+			$qryLinea = "SELECT Nombre FROM Lineas WHERE ID_lineas = '$datoSub[0]'";
+			//print"$qryLinea";
+			$resLinea = mysql_query($qryLinea);
+			$datoLinea = mysql_fetch_array($resLinea);		
+	 ?>
+      <tr class="texto2" <?=$colorFila?>>
+        <td align="center"><?=$datos[2]?></td>
+        <td align="center"><?=$datoLinea[0]?></td>
+        <td align="center"><?=$datoSub[1]?></td>
+        <td align="center"><?=$datos[4]?></td>
+        <td align="center"><?=$datos[5]?></td>
+        <td align="center"><?=$datos[12]?></td>
+        <td align="center"><a href="index.php?cmd=productos&amp;action=editar&id=<?=$datos[0]?>">Editar</a></td>
+      </tr>
+	  <? } ?>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="2" style=" border-top:1px #999999 solid;">
+	<? if($total_registros) {
+			echo "<center>";
+			if(($pagina - 1) > 0) { 
+				echo "<a href='?cmd=productos&pagina=".($pagina-1)."'>< Anterior</a> ";
+			}
+			for ($j=1; $j<=$total_paginas; $j++){ 
+				if ($pagina == $j){ 
+					echo "<span class=\"texto\">".$pagina."</span> "; 
+				}else{ 
+					echo "<a href='?cmd=productos&pagina=$j'>$j</a> "; 
+				}
+			}
+			if(($pagina + 1)<=$total_paginas){ 
+				echo "<a href='?cmd=productos&pagina=".($pagina+1)."'>Siguiente ></a>";
+			}
+			echo "</center>";
+	   } ?>
+	</td>
+  </tr>
+</table>
+</body>
+</html>

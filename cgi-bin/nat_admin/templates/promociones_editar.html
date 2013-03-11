@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<form name="forma" action="index.php?cmd=promociones&action=editar" enctype="multipart/form-data" method="post">
+<table width="50%" border="0" align="center" cellpadding="2" cellspacing="4">
+  <tr bgcolor="#999999">
+    <td colspan="2" bgcolor="#FECC8A" class="titulo">&gt;&gt; Editar Promociones </td>
+  </tr>
+  <tr>
+    <td width="21%" align="right" bgcolor="#FE4617" class="texto3">Ciclo:</td>
+    <td width="79%" align="left">
+	  <select name="ciclo" id="ciclo" class="texto2">
+	  <? for($i=0; $i<$listaC; $i++){
+	  		$datoC = mysql_fetch_array($resC); 
+			if($datos[1] == $datoC[0]) $selec = "selected"; else $selec = "" ; ?>
+	  <option value="<?=$datoC[0]?>" <?=$selec?>><?=$datoC[1]?></option>
+	  <? } ?>
+      </select></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Descripcion:</td>
+    <td align="left"><textarea name="desc" cols="45" rows="5" id="desc" class="texto2"><?=$datos[2]?>
+  </textarea></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Precio:</td>
+    <td align="left"><input name="precio" type="text" id="precio" size="15" value="<?=$datos[3]?>" class="texto2" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Estatus:</td>
+    <td align="left"><select name="estatus" id="estatus" class="texto2">
+      <option value="Activo" <?=$selecA?>>Activo</option>
+      <option value="Inactivo" <?=$selecI?>>Inactivo</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+	<input type="hidden" name="id" value="<?=$_GET[id]?>" />
+	<input type="submit" name="Submit" value="Enviar" class="boton" />    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

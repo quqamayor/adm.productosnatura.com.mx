@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>::: Admin Productos Natura Mexico ::: bien estar bien :::</title>
+<link rel="stylesheet" type="text/css" href="<?= $cfg['url_css'] ?>estilos.css" />
+</head>
+
+<body>
+<table width="36%" border="0" align="center" cellpadding="2" cellspacing="2">
+  <tr>
+    <td>
+    <h1><?=$va['mensaje']?></h1></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FE4617"><img src="<?= $cfg['url_images'] ?>logo.png" /> </td>
+  </tr>
+  <tr>
+    <td>
+	<form name="forma" method="post" action="index.php" enctype="multipart/form-data">
+        <table width="85%" border="0" align="center" cellpadding="2" cellspacing="2">
+          <tr> 
+            <td width="50%" align="right" valign="middle" bgcolor="#FECC8A" class="texto"><strong>Usuario:</strong></td>
+            <td width="50%" align="left" valign="top"><input name="usuario" type="text" size="30" class="caja"></td>
+          </tr>
+          <tr> 
+            <td align="right" valign="middle" bgcolor="#FECC8A" class="texto"><strong>Contrase&ntilde;a:</strong></td>
+            <td align="left" valign="top"><input name="pwd" type="password" size="15" class="caja"></td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td><input type="submit" name="Submit" value="Entrar" class="boton">
+				<input type="hidden" name="cmd" value="login" /></td>
+          </tr>
+        </table>
+      </form>	</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<form name="forma" action="index.php?cmd=productos&action=agregar" enctype="multipart/form-data" method="post">
+<table width="50%" border="0" align="center" cellpadding="2" cellspacing="4">
+  <tr bgcolor="#CCCCCC">
+    <td colspan="2" bgcolor="#FECC8A" class="titulo">&gt;&gt; Agregar Productos </td>
+  </tr>
+  <tr>
+    <td width="21%" align="right" bgcolor="#FE4617" class="texto3">Sublinea:</td>
+    <td width="79%" align="left" valign="top">
+	  <select name="sub" id="sub" class="texto2">
+	  <? for($i=0; $i<$listaSub; $i++){
+	  		$datoSub = mysql_fetch_array($resSub); 
+			
+			$qryLinea = "SELECT Nombre FROM Lineas WHERE ID_lineas = $datoSub[2]";
+			$resLinea = mysql_query($qryLinea);
+			$datoLinea = mysql_fetch_array($resLinea);	?>
+	  <option value="<?=$datoSub[0]?>"><?=$datoLinea[0]?> - <?=$datoSub[1]?></option>
+	  <? } ?>
+      </select></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Nombre:</td>
+    <td align="left" valign="top"><input name="nombre" type="text" id="nombre" size="45" class="texto2" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Descripcion:</td>
+    <td align="left" valign="top">
+      <textarea name="desc" cols="35" rows="7" id="desc" class="texto2"></textarea>    </td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Asin:</td>
+    <td align="left" valign="top"><input name="asin" type="text" id="asin" size="20" class="texto2" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Asin Refill: </td>
+    <td align="left" valign="top"><input name="asinR" type="text" id="asinR" size="20" class="texto2" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Tama&ntilde;o:</td>
+    <td align="left" valign="top"><input name="size" type="text" id="size" size="10" class="texto2" />    </td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Medida:</td>
+    <td align="left" valign="top"><input name="medida" type="text" id="medida" size="10" class="texto2" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">URL:</td>
+    <td align="left" valign="top"><input name="url" type="text" id="url" size="60" class="texto2" />
+    </td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Keywords:</td>
+    <td align="left" valign="top"><textarea name="key" cols="35" rows="7" id="key" class="texto2"></textarea></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Estatus:</td>
+    <td align="left" valign="top"><select name="estatus" id="estatus" class="texto2">
+      <option value="Activo">Activo</option>
+      <option value="Inactivo">Inactivo</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="Submit" value="Enviar" class="boton" />    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

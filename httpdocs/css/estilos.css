@@ -1,0 +1,62 @@
+/* CSS Document */
+
+.texto{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size:14px;
+	color:#2f2f2f;
+}
+
+.texto2{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size:12px;
+	color:#2f2f2f;
+	font-weight:bold;
+} 
+.texto3{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size:13px;
+	color:#ffffff;
+	font-weight:bold;
+}
+.titulo{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size:18px;
+	color:#2f2f2f;
+}
+
+.subtitulo{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size: 20px;
+	color:#2f2f2f;
+}
+
+.caja{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size: 12px;
+	color:#2f2f2f;
+}
+
+.boton{
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size: 14px;
+	color:#2f2f2f;
+	font-weight:bold;
+	background-color:#FECC8A;
+	text-shadow:1px 1px 1px #fef7a9;
+	/*border-radius: 1em;*/
+	-moz-box-shadow:0px 0px 10px #a4a4a3;
+	-webkit-box-shadow:0px 0px 10px #a4a4a3;   
+}
+
+a, a:visited {
+	font-family:'PT Sans Narrow', Arial, sans-serif;
+	font-size: 14px;
+	color:#FE4617;
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover{
+	text-decoration:underline;
+	color:#2f2f2f;
+}

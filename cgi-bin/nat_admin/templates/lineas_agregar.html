@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<form name="forma" action="index.php?cmd=lineas&action=agregar" enctype="multipart/form-data" method="post">
+<table width="50%" border="0" align="center" cellpadding="2" cellspacing="4">
+  <tr bgcolor="#CCCCCC">
+    <td colspan="2" bgcolor="#FECC8A" class="titulo">&gt;&gt; Agregar Lineas </td>
+  </tr>
+  <tr>
+    <td width="21%" align="right" bgcolor="#FE4617" class="texto3">Nombre:</td>
+    <td width="79%" align="left">
+      <input name="nombre" type="text" id="nombre" size="45" class="texto2" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Descripcion:</td>
+    <td align="left">
+      <textarea name="desc" cols="35" rows="7" id="desc" class="texto2"></textarea>    </td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Estatus:</td>
+    <td align="left">
+      <select name="estatus" class="texto2">
+		<option value="Activo">Activo</option>
+		<option value="Inactivo">Inactivo</option>
+      </select>    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="Submit" value="Enviar" class="boton" />
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<form name="forma" action="index.php?cmd=ciclos&action=agregar" enctype="multipart/form-data" method="post">
+<table width="50%" border="0" align="center" cellpadding="2" cellspacing="4">
+  <tr bgcolor="#CCCCCC">
+    <td colspan="2" bgcolor="#FECC8A" class="titulo">&gt;&gt; Agregar Ciclos </td>
+  </tr>  
+    <tr>
+    <td width="21%" align="right" bgcolor="#FE4617" class="texto3">Nombre:</td>
+    <td width="79%" align="left">
+      <input name="nombre" type="text" id="nombre" size="45" /></td>
+    </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Fecha desde:</td>
+    <td align="left">
+	<select name="dia_ini" size="1" id="dia_ini" class="texto2">
+                      <? $dia = date('d');              
+                 for($i=1;$i<32;$i++){
+                     if($_GET["d2"] == ''){
+                         if($dia == $i) $selecc_dia = "selected"; else $selecc_dia = "" ;
+                     }else{
+                        if($_GET["d2"] == $i) $selecc_dia = "selected"; else $selecc_dia = "" ;
+                     }    
+                  echo "<option value='$i' $selecc_dia>$i</option>";
+                }
+                ?>
+        </select>
+                    &nbsp;
+                    <select name="mes_ini" size="1" id="select2" class="texto2">
+                      <option value="01" <?=$ChecaE ?>>Enero</option>
+                      <option value="02" <?=$ChecaF ?>>Febrero</option>
+                      <option value="03" <?=$ChecaMZ ?>>Marzo</option>
+                      <option value="04" <?=$ChecaA ?>>Abril</option>
+                      <option value="05" <?=$ChecaMY ?>>Mayo</option>
+                      <option value="06" <?=$ChecaJN ?>>Junio</option>
+                      <option value="07" <?=$ChecaJL ?>>Julio</option>
+                      <option value="08" <?=$ChecaAG ?>>Agosto</option>
+                      <option value="09" <?=$ChecaS ?>>Septiembre</option>
+                      <option value="10" <?=$ChecaO ?>>Octubre</option>
+                      <option value="11" <?=$ChecaN ?>>Noviembre</option>
+                      <option value="12" <?=$ChecaD ?>>Diciembre</option>
+                    </select>
+                    &nbsp;
+                    <select name="anio_ini" size="1" id="select5" class="texto2">
+                      <? $anioi = date('Y')+3;
+                 for($j=2011;$j<=$anioi;$j++){
+                      if($_GET["d4"] == ''){
+                       if($anioi == $j) $selecc_anio = "selected"; else $selecc_anio = "";
+                    }else{
+                       if($_GET["d4"] == $j) $selecc_anio = "selected"; else $selecc_anio = "";
+                    }
+                    echo "<option value='$j' $selecc_anio>$j</option>";
+                 }
+                ?>
+                    </select>
+	</td>
+  </tr>
+  <tr>
+    <td width="21%" align="right" bgcolor="#FE4617" class="texto3">Fecha hasta:</td>
+    <td align="left">
+	<select name="dia_al" size="1" class="texto2" id="dia_al">
+  <? $diaa = date('d');              
+                 for($k=1;$k<32;$k++){
+                     if($_GET["d5"] == ''){
+                        if($diaa == $k) $selecc = "selected"; else $selecc = "" ;
+                    }else{
+                        if($_GET["d5"] == $k) $selecc = "selected"; else $selecc = "" ;
+                    }
+                    echo "<option value='$k' $selecc>$k</option>";
+                }
+                ?>
+</select>
+&nbsp;
+            
+<select name="mes_al" size="1" id="select4" class="texto2">
+  <option value="01" <?=$ChecaEn ?>>Enero</option>
+  <option value="02" <?=$ChecaFe ?>>Febrero</option>
+  <option value="03" <?=$ChecaMZo ?>>Marzo</option>
+  <option value="04" <?=$ChecaAb ?>>Abril</option>
+  <option value="05" <?=$ChecaMYo ?>>Mayo</option>
+  <option value="06" <?=$ChecaJNo ?>>Junio</option>
+  <option value="07" <?=$ChecaJLo ?>>Julio</option>
+  <option value="08" <?=$ChecaAGo ?>>Agosto</option>
+  <option value="09" <?=$ChecaSe ?>>Septiembre</option>
+  <option value="10" <?=$ChecaOc ?>>Octubre</option>
+  <option value="11" <?=$ChecaNo ?>>Noviembre</option>
+  <option value="12" <?=$ChecaDi ?>>Diciembre</option>
+</select>
+&nbsp;
+<select name="anio_al" size="1" id="select3" class="texto2">
+  				 <? $ani = date('Y')+3;
+                 for($m=2011;$m<=$ani;$m++){
+                      if($_GET["d7"] == ''){
+                      if($ani == $m) $selecc_anio = "selected"; else $selecc_anio = "";
+                    }else{
+                      if($_GET["d7"] == $m) $selecc_anio = "selected"; else $selecc_anio = "";
+                    }
+                    echo "<option value='$m' $selecc_anio>$m</option>";
+                }
+                ?>
+</select>
+	</td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FE4617" class="texto3">Estatus:</td>
+    <td align="left">
+      <select name="estatus" class="texto2">
+		<option value="Activo">Activo</option>
+		<option value="Inactivo">Inactivo</option>
+      </select>    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" name="Submit" value="Enviar" class="boton" />    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

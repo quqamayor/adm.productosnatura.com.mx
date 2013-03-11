@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<table width="60%" border="0" align="center" cellpadding="2" cellspacing="4" bordercolor="#CCCCCC">
+  <tr bgcolor="#FECC8A">
+    <td width="76%" class="titulo">Promociones</td>
+    <td width="24%" align="center"><a href="index.php?cmd=promociones&action=agregar">Agregar</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top"><table width="99%" border="0" cellpadding="4" cellspacing="4">
+      <tr bgcolor="#FE4617" class="texto3">
+        <td width="13%" align="center">Ciclo</td>
+        <td width="31%" align="center">Descripcion</td>
+        <td width="16%" align="center">Precio </td>
+        <td width="13%" align="center">Estatus</td>
+        <td width="12%">&nbsp;</td>
+      </tr>
+	  <? for($i=0; $i<$lista; $i++){
+	  		$datos = mysql_fetch_array($res); 
+			if($i%2 == 0) $colorFila = 'bgcolor="#FFE7C8"'; else $colorFila = '';
+			
+			$qryC = "SELECT Nombre FROM Ciclos WHERE ID_ciclos = '$datos[1]'";
+			//print"$qryC";
+			$resC = mysql_query($qryC);
+			$datoC = mysql_fetch_array($resC);
+			
+	 ?>
+      <tr class="texto2" <?=$colorFila?>>
+        <td align="center"><?=$datoC[0]?></td>
+        <td align="center"><?=$datos[2]?></td>
+        <td align="center"><?=$datos[3]?></td>
+        <td align="center"><?=$datos[6]?></td>
+        <td align="center"><a href="index.php?cmd=promociones&amp;action=editar&id=<?=$datos[0]?>">Editar</a></td>
+      </tr>
+	  <? } ?>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="2" style=" border-top:1px #999999 solid;">
+	<? if($total_registros) {
+			echo "<center>";
+			if(($pagina - 1) > 0) { 
+				echo "<a href='?cmd=promociones&pagina=".($pagina-1)."'>< Anterior</a> ";
+			}
+			for ($j=1; $j<=$total_paginas; $j++){ 
+				if ($pagina == $j){ 
+					echo "<span class=\"texto\">".$pagina."</span> "; 
+				}else{ 
+					echo "<a href='?cmd=promociones&pagina=$j'>$j</a> "; 
+				}
+			}
+			if(($pagina + 1)<=$total_paginas){ 
+				echo "<a href='?cmd=promociones&pagina=".($pagina+1)."'>Siguiente ></a>";
+			}
+			echo "</center>";
+	   } ?>
+	</td>
+  </tr>
+</table>
+</body>
+</html>

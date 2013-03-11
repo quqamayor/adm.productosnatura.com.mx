@@ -1,0 +1,5 @@
+RewriteEngine on
+Options +FollowSymlinks
+
+RewriteRule ^linea/(.*)$     index.php?cmd=lineas&sl=$1
+
