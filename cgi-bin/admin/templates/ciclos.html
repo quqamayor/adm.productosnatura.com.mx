@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+
+<body>
+<table width="60%" border="0" align="center" cellpadding="2" cellspacing="4">
+  <tr bgcolor="#f1f1f1">
+    <td width="76%" bgcolor="#FECC8A" class="titulo">Ciclos</td>
+    <td width="24%" align="center" bgcolor="#FECC8A"><a href="index.php?cmd=ciclos&action=agregar">Agregar</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" valign="top"><table width="98%" border="0" cellpadding="4" cellspacing="4">
+      <tr bgcolor="#CCCCCC" class="texto3">
+        <td width="24%" align="center" bgcolor="#FE4617">Nombre</td>
+        <td width="22%" align="center" bgcolor="#FE4617">Fecha desde </td>
+        <td width="21%" align="center" bgcolor="#FE4617">Fecha hasta </td>
+        <td width="20%" align="center" bgcolor="#FE4617">Estatus</td>
+        <td width="13%" bgcolor="#FE4617">&nbsp;</td>
+      </tr>
+	  <?= $va['ciclos'] ?> 
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="2" style=" border-top:1px #999999 solid;">
+		<? if($total_registros) {
+			echo "<center>";
+			if(($pagina - 1) > 0) { 
+				echo "<a href='?cmd=ciclos&pagina=".($pagina-1)."'>< Anterior</a> ";
+			}
+			for ($j=1; $j<=$total_paginas; $j++){ 
+				if ($pagina == $j){ 
+					echo "<span class=\"texto\">".$pagina."</span> "; 
+				}else{ 
+					echo "<a href='?cmd=ciclos&pagina=$j'>$j</a> "; 
+				}
+			}
+			if(($pagina + 1)<=$total_paginas){ 
+				echo "<a href='?cmd=ciclos&pagina=".($pagina+1)."'>Siguiente ></a>";
+			}
+			echo "</center>";
+	   } ?>
+	</td>
+  </tr>
+</table>
+</body>
+</html>
