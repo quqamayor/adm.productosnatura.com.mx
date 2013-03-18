@@ -383,8 +383,8 @@ function load_sys_data() {
 //Last modified by: MCC C. Gabriel Varela S. :Se cambia la forma de evaluar las líneas
         global $sys,$cfg,$cfg_folder,$local;
         
-        if (file_exists($cfg_folder.'/general.'.$local.".cfg")) {
-	        if ($handle = fopen($cfg_folder.'/general.'.$local.'.cfg','r')){
+        if (file_exists($cfg_folder.'/general.cfg')) {
+	        if ($handle = fopen($cfg_folder.'/general.cfg','r')){
 		        while (!feof($handle) and $handle != '') {
 			        $line=fgets($handle);
 			        if(preg_match("/\||=/",$line))

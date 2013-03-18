@@ -25,7 +25,12 @@ define('DATE_FORMAT_LONG', '%A %d %B, %Y');
 $cfg_folder  = '/home/barcenasadame/admin.productosnatura.com.mx/cgi-bin/nat_admin/common/';
 
 if($local != 'puppis.dreamhost.com'){
-      $cfg_folder        = '/home/www/domains_hypermedia/naturadmin/cgi-bin/nat_admin/common/';
+	$dir = getcwd();
+        list($b_cgibin,$a_cgibin) = strpos( $dir, 'httpdocs' ) !== false ?
+                explode('httpdocs',$dir) :
+                explode('cgi-bin/',$dir);
+        $cfg_folder = $b_cgibin.'cgi-bin/common/';
+	ini_set('display_errors', '1');
 }
 
 load_sys_data(); //Load $sys
